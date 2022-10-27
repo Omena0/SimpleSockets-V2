@@ -68,7 +68,7 @@ class connection:
             a = Thread(target=self._handle_client,args=[cs,address])
             a.daemon = True
             a.start()
-    def send(msg):
+    def send(self,msg):
         if self.type == 'client':
             self.socket.send(msg.encode())
         if self.type == 'server':
