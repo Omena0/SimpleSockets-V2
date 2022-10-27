@@ -27,7 +27,7 @@ class connection:
         self.on_disconnect = self.default
         self.on_msg = self.default
         
-        #if type != 'client' or type != 'server': type = 'client'
+        if not type in ['server','client']: type = 'client'
         if type == 'client':
             try: self.socket.connect((ip,port))
             except OSError:
@@ -56,6 +56,7 @@ class connection:
                     self.on_disconnect(cs,address[0],address[1])
                     self.clients.remove(cs)
                     cs.close()
+                    break
                 except: break
             self.on_msg(msg,cs,address)
     
@@ -67,31 +68,12 @@ class connection:
             a = Thread(target=self._handle_client,args=[cs,address])
             a.daemon = True
             a.start()
-
-
-def connect(cs,ip,port):
-    print(cs)
-    print(ip,port)
-
-def msg(msg,cs,address):
-    print(f'Message from {address}: {msg}')
-
-def disconnect(cs,ip,port):
-    print(f'Client disconnected: {ip}:{port}')
-
-a = connection('127.0.0.1',5000,'server',logging=True)
-
-a.on_connect = connect
-a.on_msg = msg
-a.on_disconnect = disconnect
-
-
-
-
-
-
-
-
+    def send(msg):
+        if self.type == 'client':
+            self.socket.send(msg.encode())
+        if self.type == 'server':
+            for cs in self.clients:
+                cs.send(msg.encode())
 
 
 
