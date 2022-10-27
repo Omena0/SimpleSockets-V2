@@ -7,6 +7,8 @@ import SimpleSockets as ss
 
 ## Examples:
 
+#### See sandals on [GitHub](https://github.com/georgewalton/Sandals)
+
 ### Client:
 ```python
 from sandals import *
