@@ -11,18 +11,18 @@ import SimpleSockets as ss
 ### Making a server
 
 - First import SimpleSockets 
-```
+```python
 import SimpleSockets as ss
 ```
 
 - Define a server or client object:
 ##### Define a new connection with logging enabled on localhost port 5000 as s:
-```
+```python
 s = ss.connection('127.0.0.1',5000,'server',logging=True)
 ```
 
 - Define what to do on a new connection, disconnection or message:
-```
+```python
 def on_connect(cs,ip,port):
     lib.log('+',f'{ip}:{port} Connected!')
 def on_disconnect(cs,ip,port):
@@ -37,7 +37,7 @@ s.on_msg = on_msg
 
 - Import SimpleSockets and sandals and define connection:
 #### See sandals [here] (https://github.com/georgewalton/Sandals)
-```
+```python
 import SimpleSockets as ss
 import sandals
 
