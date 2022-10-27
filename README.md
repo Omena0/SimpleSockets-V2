@@ -36,7 +36,7 @@ s.on_msg = on_msg
 ### Making the client
 
 - Import SimpleSockets and sandals and define connection:
-#### See sandals [here] (https://github.com/georgewalton/Sandals)
+#### See sandals [here](https://github.com/georgewalton/Sandals)
 ```python
 import SimpleSockets as ss
 import sandals
