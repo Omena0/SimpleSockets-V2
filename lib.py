@@ -1,3 +1,5 @@
+# Leaked old version of my old util lib, literally most insecure thing ever prob has 100 vulns i dont know of XD
+
 if __name__ == '__main__':
     exit('Do not run the library! Import it!')
 
